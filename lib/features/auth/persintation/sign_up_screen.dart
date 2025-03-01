@@ -33,6 +33,10 @@ class SignUpScreen extends StatelessWidget {
           if (state is AuthSucces) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text("sign up Successful")));
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => Home()),
+            );
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.error)));
@@ -230,10 +234,6 @@ class SignUpScreen extends StatelessWidget {
                                   vertical: 18, horizontal: 60),
                             ),
                             onPressed: () {
-                              Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const Home()),
-  );
                               formkey.currentState!.save();
                               if (formkey.currentState!.validate()) {
                                 context.read<AuthBloc>().add(SignUpEvent(
@@ -244,10 +244,12 @@ class SignUpScreen extends StatelessWidget {
                                     phoneNumber: phoneNember.text));
                               }
                             },
-                            child: state is AuthLoading?CircularProgressIndicator() : Text(
-                              "Sign up",
-                              style: TextStyle(color: Colors.white),
-                            ),
+                            child: state is AuthLoading
+                                ? CircularProgressIndicator()
+                                : Text(
+                                    "Sign up",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                           ),
                         ],
                       ),

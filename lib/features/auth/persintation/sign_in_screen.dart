@@ -20,8 +20,6 @@ class SignInScreen extends StatelessWidget {
 
   final password = TextEditingController();
 
-
-  
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -30,6 +28,8 @@ class SignInScreen extends StatelessWidget {
           if (state is AuthSucces) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => Home()));
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.error)));
@@ -57,7 +57,7 @@ class SignInScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 20,
                                   ),
-                                   Padding(
+                                  Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: TextFormField(
                                       controller: email,
@@ -120,7 +120,6 @@ class SignInScreen extends StatelessWidget {
                                           )),
                                     ),
                                   ),
-                                 
                                 ],
                               ),
                             ),
@@ -131,10 +130,12 @@ class SignInScreen extends StatelessWidget {
                               alignment: Alignment.centerLeft,
                               child: TextButton(
                                 onPressed: () {
-                                   Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => ForgetPasswordScreen(rm)),
-  );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ForgetPasswordScreen()),
+                                  );
                                 },
                                 child: Text(
                                   "Forget Password?",
@@ -150,20 +151,19 @@ class SignInScreen extends StatelessWidget {
                                     vertical: 18, horizontal: 60),
                               ),
                               onPressed: () {
-                                Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const Home()),
-  );
                                 formkey.currentState!.save();
                                 if (formkey.currentState!.validate()) {
                                   context.read<AuthBloc>().add(SignInEvent(
-                                      email: email.text, password: password.text));
+                                      email: email.text,
+                                      password: password.text));
                                 }
                               },
-                              child: state is AuthLoading?CircularProgressIndicator() : Text(
-                                "Sign in",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                              child: state is AuthLoading
+                                  ? CircularProgressIndicator()
+                                  : Text(
+                                      "Sign in",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                             ),
                           ],
                         ),
@@ -174,8 +174,6 @@ class SignInScreen extends StatelessWidget {
               ),
             ),
           );
-        }
-        )
-        );
+        }));
   }
 }
