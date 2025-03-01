@@ -8,6 +8,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: ColorsManager.mainBlue,
+      height: 500,
     );
   }
 }
