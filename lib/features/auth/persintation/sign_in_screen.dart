@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/widgets/auth.dart';
+import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
 import 'package:flutter_application_1/features/auth/data/repository/auth_repository.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_bloc.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_event.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_state.dart';
 import 'package:flutter_application_1/features/auth/persintation/forget_password_screen.dart';
 
-import 'package:flutter_application_1/features/home/persintation/home.dart';
+
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
@@ -19,6 +21,8 @@ class SignInScreen extends StatelessWidget {
   final email = TextEditingController();
 
   final password = TextEditingController();
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class SignInScreen extends StatelessWidget {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => Home()));
+                context, MaterialPageRoute(builder: (context) => BottomBar()));
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.error)));
@@ -155,7 +159,10 @@ class SignInScreen extends StatelessWidget {
                                 if (formkey.currentState!.validate()) {
                                   context.read<AuthBloc>().add(SignInEvent(
                                       email: email.text,
-                                      password: password.text));
+                                      password: password.text,
+                                      
+                                    
+                                      ));
                                 }
                               },
                               child: state is AuthLoading

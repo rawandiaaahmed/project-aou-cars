@@ -5,7 +5,7 @@ import 'package:flutter_application_1/features/splash/logic/bloc/splash_bloc.dar
 import 'package:flutter_application_1/features/splash/logic/bloc/splash_event.dart';
 import 'package:flutter_application_1/features/splash/logic/bloc/splash_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 
 class SplashScreen extends StatelessWidget {

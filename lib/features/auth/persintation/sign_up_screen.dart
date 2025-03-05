@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/widgets/auth.dart';
+import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
 import 'package:flutter_application_1/features/auth/data/repository/auth_repository.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_bloc.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_event.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_state.dart';
-import 'package:flutter_application_1/features/home/persintation/home.dart';
+
+import 'package:flutter_application_1/features/home/persintation/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
@@ -21,6 +23,8 @@ class SignUpScreen extends StatelessWidget {
 
   final firstName = TextEditingController();
   final lastName = TextEditingController();
+  final name = TextEditingController();
+  
 
   bool islouding = false;
 
@@ -35,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
                 .showSnackBar(SnackBar(content: Text("sign up Successful")));
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => Home()),
+              MaterialPageRoute(builder: (context) => BottomBar()),
             );
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context)
@@ -241,7 +245,9 @@ class SignUpScreen extends StatelessWidget {
                                     firstName: firstName.text,
                                     lastName: lastName.text,
                                     password: password.text,
-                                    phoneNumber: phoneNember.text));
+                                    phoneNumber: phoneNember.text,
+                                   
+                                    ));
                               }
                             },
                             child: state is AuthLoading
