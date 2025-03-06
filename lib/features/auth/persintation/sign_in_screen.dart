@@ -11,6 +11,7 @@ import 'package:flutter_application_1/features/auth/persintation/forget_password
 
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class SignInScreen extends StatelessWidget {
@@ -47,22 +48,22 @@ class SignInScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0.h),
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 50,
+                              height: 15.h,
                             ),
                             Form(
                               key: formkey,
                               child: Column(
                                 children: [
                                   SizedBox(
-                                    height: 20,
+                                    height: 10.h,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(5.0),
+                                    padding:  EdgeInsets.all(5.0.h),
                                     child: TextFormField(
                                       controller: email,
                                       validator: (value) {
@@ -76,9 +77,9 @@ class SignInScreen extends StatelessWidget {
                                       decoration: InputDecoration(
                                           focusedBorder: OutlineInputBorder(
                                             borderSide:
-                                                BorderSide(color: Colors.blue),
+                                                BorderSide(color: ColorsManager.mainBlue),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                           ),
                                           hintText: 'email',
                                           hintStyle:
@@ -87,15 +88,15 @@ class SignInScreen extends StatelessWidget {
                                             borderSide:
                                                 BorderSide(color: Colors.grey),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                           )),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 20,
+                                    height: 12.h,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(5.0),
+                                    padding:  EdgeInsets.all(5.0.h),
                                     child: TextFormField(
                                       controller: password,
                                       validator: (value) {
@@ -109,9 +110,9 @@ class SignInScreen extends StatelessWidget {
                                       decoration: InputDecoration(
                                           focusedBorder: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                             borderSide:
-                                                BorderSide(color: Colors.blue),
+                                                BorderSide(color: ColorsManager.mainBlue),
                                           ),
                                           hintText: 'password',
                                           hintStyle:
@@ -120,7 +121,7 @@ class SignInScreen extends StatelessWidget {
                                             borderSide:
                                                 BorderSide(color: Colors.grey),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                           )),
                                     ),
                                   ),
@@ -128,7 +129,7 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: 17,
+                              height: 5.h,
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
@@ -147,12 +148,12 @@ class SignInScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 20.h),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: ColorsManager.mainBlue,
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 18, horizontal: 60),
+                                    vertical: 10.h, horizontal: 50.h),
                               ),
                               onPressed: () {
                                 formkey.currentState!.save();
@@ -169,7 +170,10 @@ class SignInScreen extends StatelessWidget {
                                   ? CircularProgressIndicator()
                                   : Text(
                                       "Sign in",
-                                      style: TextStyle(color: Colors.white),
+                                       style: TextStyle(
+              fontSize: 15.sp,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
                                     ),
                             ),
                           ],
