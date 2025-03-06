@@ -55,8 +55,8 @@ class SplashScreen extends StatelessWidget {
               
                 Positioned(
                   top: 266.h,
-                  left: 30.w,
-                  right: 30.w,
+                  left: 20.w,
+                  right: 20.w,
               
                   
                     child: Column(
@@ -97,7 +97,7 @@ class SplashScreen extends StatelessWidget {
                         Align(
                           alignment: Alignment.bottomRight,
                           child: Padding(
-                            padding: EdgeInsets.only(top:40.h),
+                            padding: EdgeInsets.only(top:40.h,),
                             child: Text(
                               "Upgrade Your Car!",
                               style: TextStyle(
