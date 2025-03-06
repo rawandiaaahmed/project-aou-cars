@@ -6,9 +6,15 @@ import 'package:flutter_application_1/features/home/persintation/widgets/header_
 
 import 'package:flutter_application_1/features/home/persintation/widgets/sell_car.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,6 +26,7 @@ class HomeScreen extends StatelessWidget {
             children: [HeaderHome(), BuyCar(), SellCar()],
           ),
         ),
+      
       ),
     );
   }
