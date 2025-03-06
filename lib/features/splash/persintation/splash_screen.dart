@@ -5,6 +5,7 @@ import 'package:flutter_application_1/features/splash/logic/bloc/splash_bloc.dar
 import 'package:flutter_application_1/features/splash/logic/bloc/splash_event.dart';
 import 'package:flutter_application_1/features/splash/logic/bloc/splash_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
@@ -53,9 +54,9 @@ class SplashScreen extends StatelessWidget {
           
               
                 Positioned(
-                  top: 340,
-                  left: 30,
-                  right: 30,
+                  top: 266.h,
+                  left: 30.w,
+                  right: 30.w,
               
                   
                     child: Column(
@@ -68,20 +69,20 @@ class SplashScreen extends StatelessWidget {
                               "CARZATO",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 41,
+                                fontSize: 41.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Transform(
                               alignment: Alignment.center,
-                              transform: Matrix4.rotationX(3.1416),
+                              transform: Matrix4.rotationX(3.1416.r),
                               child: Opacity(
                                 opacity: 0.3,
                                 child: Text(
                                   "CARZATO",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 41,
+                                    fontSize: 41.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -90,18 +91,18 @@ class SplashScreen extends StatelessWidget {
                           ],
                         ),
                             
-                        SizedBox(height: 250), 
+                        SizedBox(height: 250.h), 
                             
                       
                         Align(
                           alignment: Alignment.bottomRight,
                           child: Padding(
-                            padding: EdgeInsets.only(top:140),
+                            padding: EdgeInsets.only(top:40.h),
                             child: Text(
                               "Upgrade Your Car!",
                               style: TextStyle(
                                 color: Colors.white70,
-                                fontSize: 18,
+                                fontSize: 16.sp,
                               ),
                             ),
                           ),

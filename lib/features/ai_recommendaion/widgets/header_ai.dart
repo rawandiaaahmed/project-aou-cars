@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
-import 'package:flutter_application_1/features/ai_recommendaion/ai_recommendaion_screen.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HeaderHome extends StatelessWidget {
-  const HeaderHome({super.key});
+class HeaderAi extends StatelessWidget {
+  const HeaderAi({super.key});
 
   @override
   
@@ -53,42 +52,18 @@ class HeaderHome extends StatelessWidget {
                     Text(
                       "CARZATO",
                       style: TextStyle(
-                        fontSize: 18.sp,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => AiRecommendaionScreen()),
-  );
-                      },
-                      child: Text(
-                        'AI Recommendations?',
-                        style: TextStyle(color: Colors.white, fontSize: 13.sp),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 38.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                          "Welcome Back rawan",
-                          style: TextStyle(color: Colors.white),
-                        )
-                ]
-                  ),
-                ],
-              ),
-            
-          ),
-        
-      ],
+                  ]
+                )
+              )
+            ]
+          )
+        )
+      ]
     );
   }
 }

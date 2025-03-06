@@ -2,10 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
+
+import 'package:flutter_application_1/features/ai_recommendaion/ai_recommendaion_screen.dart';
 import 'package:flutter_application_1/features/auth/data/repository/auth_repository.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_bloc.dart';
+import 'package:flutter_application_1/features/auth/persintation/sign_in_screen.dart';
 import 'package:flutter_application_1/features/splash/persintation/splash_screen.dart';
+
 
 
 import 'package:flutter_application_1/firebase_options.dart';
@@ -43,7 +46,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Firebase Bloc',
             theme: ThemeData(primarySwatch: Colors.blue),
-            home: SplashScreen(),
+            home: SignInScreen(),
           ),
         );
       },
