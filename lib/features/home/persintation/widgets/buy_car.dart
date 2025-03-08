@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
+import 'package:flutter_application_1/features/buy_cars/persentation/buy_cars_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuyCar extends StatefulWidget {
@@ -11,6 +12,18 @@ class BuyCar extends StatefulWidget {
 
 class _BuyCarState extends State<BuyCar> {
   final List<Map<String, dynamic>> catgeriess = [
+    {
+      'iconpath': 'assets/images/cccaaarrr.jpeg',
+      'title': 'Kia Spectra 2002',
+      'suptitle': 'Automatic • 82,500 Km',
+      'prise': '1,500,000 EGP'
+    },
+    {
+      'iconpath': 'assets/images/carrs.jpeg',
+      'title': 'Kia Spectra 2002',
+      'suptitle': 'Automatic • 82,500 Km',
+      'prise': '1,500,000 EGP'
+    },
     {
       'iconpath': 'assets/images/car2.jpeg',
       'title': 'Toyota Corolla 2021',
@@ -40,7 +53,12 @@ class _BuyCarState extends State<BuyCar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => BuyCarsScreen()),
+  );
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

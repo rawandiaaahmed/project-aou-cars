@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/ai_recommendaion/ai_detals_cars_screen.dart';
+import 'package:flutter_application_1/features/buy_cars/persentation/buy_detiles_car_screen.dart';
 
-import 'package:flutter_application_1/features/ai_recommendaion/widgets/header_ai.dart';
+
+import 'package:flutter_application_1/features/buy_cars/persentation/widgets/buy_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ShowAiScreen extends StatelessWidget {
-  ShowAiScreen({super.key});
+class BuyCarsScreen extends StatelessWidget {
+   BuyCarsScreen({super.key});
 
   final List<Map<String, dynamic>> cars = [
     {
@@ -69,7 +70,7 @@ class ShowAiScreen extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              HeaderAi(),
+              BuyHeader(),
               SizedBox(height: 12.h),
               SizedBox(
                 height: 500.h,
@@ -86,7 +87,7 @@ class ShowAiScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AiDetalsCarsScreen(car: car),
+                            builder: (context) => BuyDetilesCarsScreen(car: car),
                           ),
                         );
                       },
