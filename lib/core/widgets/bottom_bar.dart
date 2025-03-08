@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/buy_cars/persentation/buy_cars_screen.dart';
 import 'package:flutter_application_1/features/home/persintation/home_screen.dart';
+import 'package:flutter_application_1/features/profile_cars/persentaion/profile_cars_screen.dart';
+import 'package:flutter_application_1/features/sell_cars/persentation/sell_cars_screen.dart';
 
 
 class BottomBar extends StatefulWidget {
@@ -13,6 +16,9 @@ class _BottomBarState extends State<BottomBar> {
   int selected = 0; 
   final List<Widget> pages = [
     HomeScreen(),
+    BuyCarsScreen(),
+    SellCarsScreen(),
+    ProfileCarsScreen(),
   
     
   ];
