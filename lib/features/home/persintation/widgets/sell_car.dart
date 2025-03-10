@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
+import 'package:flutter_application_1/features/sell_cars/persentation/sell_cars_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SellCar extends StatelessWidget {
@@ -38,7 +39,10 @@ class SellCar extends StatelessWidget {
                     SizedBox(height: 10.h),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(backgroundColor: ColorsManager.mainBlue),
-                      onPressed: () {},
+                      onPressed: () { Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const SellCarsScreen()),
+  );},
                       child:
                           Text("Sell Your Car", style: TextStyle(color: Colors.white)),
                     ),
