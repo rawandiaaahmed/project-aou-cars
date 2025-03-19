@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/features/sell_cars/persentation/location_screen.dart';
+
 import 'package:flutter_application_1/features/sell_cars/persentation/widgets/text_field_sell_car.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -101,6 +102,7 @@ class CarDetalisScreen extends StatelessWidget {
     context,
     MaterialPageRoute(builder: (context) => LocationScreen()),
   );
+                   
                   },
                   child: Text(
                     'Next',

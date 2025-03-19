@@ -8,13 +8,13 @@ class SignInEvent extends AuthEvent {
 }
 class SignUpEvent extends AuthEvent {
  final String email;
- final String firstName;
-  final String lastName;
+ final String firstname;
+  final String lastname;
   final String password;
-  final String phoneNumber;
+  final String phonenumber;
   
   
-  SignUpEvent({required this.email, required this.firstName, required this.lastName, required this.password, required this.phoneNumber});
+  SignUpEvent({required this.email, required this.firstname, required this.lastname, required this.password, required this.phonenumber});
 }
 class ResetPasswordEvent extends AuthEvent {
   final String email;
