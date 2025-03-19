@@ -243,10 +243,10 @@ class SignUpScreen extends StatelessWidget {
                               if (formkey.currentState!.validate()) {
                                 context.read<AuthBloc>().add(SignUpEvent(
                                     email: email.text,
-                                    firstName: firstName.text,
-                                    lastName: lastName.text,
+                                    firstname: firstName.text,
+                                    lastname: lastName.text,
                                     password: password.text,
-                                    phoneNumber: phoneNember.text,
+                                    phonenumber: phoneNember.text,
                                    
                                     ));
                               }
