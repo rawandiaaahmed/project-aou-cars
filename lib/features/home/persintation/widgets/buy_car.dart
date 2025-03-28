@@ -20,9 +20,9 @@ class _BuyCarState extends State<BuyCar> {
     },
     {
       'iconpath': 'assets/images/carrs.jpeg',
-      'title': 'Kia Spectra 2002',
-      'suptitle': 'Automatic • 82,500 Km',
-      'prise': '1,500,000 EGP'
+      'title': 'Nissan Sunny 2021',
+      'suptitle': 'Automatic • 83,500 Km',
+      'prise': '2,500,000 EGP'
     },
     {
       'iconpath': 'assets/images/car2.jpeg',
@@ -54,10 +54,10 @@ class _BuyCarState extends State<BuyCar> {
           children: [
             TextButton(
                 onPressed: () {
-                   Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => BuyCarsScreen()),
-  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BuyCarsScreen()),
+                  );
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -120,7 +120,9 @@ class _BuyCarState extends State<BuyCar> {
                           SizedBox(height: 5.h),
                           Text(
                             catgeriess[index]['prise'],
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green),
                           ),
                         ],
                       ),

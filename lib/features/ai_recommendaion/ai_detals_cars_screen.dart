@@ -139,8 +139,19 @@ class  AiDetalsCarsScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
+                                color: Colors.green
                               ),
                             ),
+                             SizedBox(height: 8.h),
+                            Row(
+                              children: [
+                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
+                              ],
+                            )
                           ],
                         ),
                       ),

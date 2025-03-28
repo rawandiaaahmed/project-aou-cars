@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class ConfirmationScreen extends StatelessWidget {
+class ConfirmationScreen extends StatefulWidget {
+  @override
+  State<ConfirmationScreen> createState() => _ConfirmationScreenState();
+}
+
+class _ConfirmationScreenState extends State<ConfirmationScreen> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,108 +39,7 @@ class ConfirmationScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               
-              Container(
-                padding: EdgeInsets.all(16.w),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                      spreadRadius: 1,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Appointment Details",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10.h),
-                    Row(
-                      children: [
-                        Icon(Icons.calendar_today, size: 18.sp),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "Visit Date",
-                          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 4.h),
-                    Text(
-                      "Expect a call shortly from our customer support team",
-                      style: TextStyle(fontSize: 14.sp, color: Colors.grey),
-                    ),
-                    SizedBox(height: 10.h),
-                    Row(
-                      children: [
-                        Icon(Icons.location_on, size: 18.sp),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "Location",
-                          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 4.h),
-                    Text(
-                      "5WMC+PWP, As Sabheyyah WA Izbat Sharkas\n"
-                      "WA Izbat Raafat, Moharam Bek, Alexandria\n"
-                      "Governorate 5412101, Egypt",
-                      style: TextStyle(fontSize: 14.sp, color: Colors.grey),
-                    ),
-                    SizedBox(height: 10.h),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.r),
-                      child: Image.asset('assets/images/map.jpeg', height: 100.h, width: double.infinity, fit: BoxFit.cover),
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 20.h),
-
-              Container(
-                padding: EdgeInsets.all(12.w),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                      spreadRadius: 1,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/circle.png', width: 50.w),
-                    SizedBox(width: 12.w),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Audi A4 2022",
-                          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 4.h),
-                        Text(
-                          "30,000 - 39,999 KM · Automatic",
-                          style: TextStyle(fontSize: 12.sp, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+           
 
               SizedBox(height: 30.h),
 

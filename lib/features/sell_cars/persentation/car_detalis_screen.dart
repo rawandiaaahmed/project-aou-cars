@@ -7,7 +7,13 @@ import 'package:flutter_application_1/features/sell_cars/persentation/widgets/te
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarDetalisScreen extends StatelessWidget {
-  const CarDetalisScreen({super.key});
+  CarDetalisScreen({super.key});
+  final make = TextEditingController();
+  final model = TextEditingController();
+  final kilometars = TextEditingController();
+  final year = TextEditingController();
+  final transmision = TextEditingController();
+  final formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -69,24 +75,37 @@ class CarDetalisScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20.h),
-
               Text(
                 'Fill your car details',
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10.h),
-
-            
-              TextFieldSellCar(label: 'Make', hint: 'What is your car make?'),
-              TextFieldSellCar(label: 'Model', hint: 'Pick your car model'),
-              TextFieldSellCar(label: 'Year', hint: 'What is your car year?'),
               TextFieldSellCar(
-                  label: 'Kilometers', hint: 'What is your kilometrage range?'),
-              TextFieldSellCar(label: 'Transmission', hint: 'Transmission'),
-
+                label: 'Make',
+                hint: 'What is your car make?',
+                controller: make,
+              ),
+              TextFieldSellCar(
+                label: 'Model',
+                hint: 'Pick your car model',
+                controller: model,
+              ),
+              TextFieldSellCar(
+                label: 'Year',
+                hint: 'What is your car year?',
+                controller: year,
+              ),
+              TextFieldSellCar(
+                label: 'Kilometers',
+                hint: 'What is your kilometrage range?',
+                controller: kilometars,
+              ),
+              TextFieldSellCar(
+                label: 'Transmission',
+                hint: 'Transmission',
+                controller: transmision,
+              ),
               SizedBox(height: 30.h),
-
-          
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -98,11 +117,10 @@ class CarDetalisScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                     Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => LocationScreen()),
-  );
-                   
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LocationScreen()),
+                    );
                   },
                   child: Text(
                     'Next',
