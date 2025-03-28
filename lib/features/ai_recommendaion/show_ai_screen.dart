@@ -137,12 +137,19 @@ class ShowAiScreen extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 5.h),
-                                  Text(
-                                    car["prise"],
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        car["prise"],
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.green
+                                        ),
+                                      ),
+                                      Icon(Icons.star,color: Colors.orange,size: 20.sp, )
+                                    ],
                                   ),
                                 ],
                               ),

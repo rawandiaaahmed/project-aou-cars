@@ -5,7 +5,9 @@ import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
 
 import 'package:flutter_application_1/features/auth/data/repository/auth_repository.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_bloc.dart';
-import 'package:flutter_application_1/features/splash/persintation/splash_screen.dart';
+import 'package:flutter_application_1/features/sell_cars/persentation/location_screen.dart';
+import 'package:flutter_application_1/features/sell_cars/persentation/sell_cars_screen.dart';
+
 
 import 'package:flutter_application_1/firebase_options.dart';
 
@@ -37,10 +39,12 @@ class MyApp extends StatelessWidget {
           create: (context) => AuthBloc(authRepository: AuthRepository()),
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
+            home: BottomBar(),
           ),
         );
       },
     );
   }
 }
+
+

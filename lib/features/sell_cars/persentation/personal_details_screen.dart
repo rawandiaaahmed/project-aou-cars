@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PersonalDetailsScreen extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
+  final formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -55,21 +56,32 @@ class PersonalDetailsScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               
-              // لف TextField بـ Container لتحديد العرض
-              Container(
-                width: double.infinity, // يعطي عرض الشاشة بالكامل
-                child: TextField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.r),
-                      borderSide: BorderSide(color: ColorsManager.mainBlue),
-                    ),
-                    hintText: 'rawan-01063970492',
-                    hintStyle: TextStyle(color: Colors.black),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(12.r),
+              
+            Form(
+              key: formkey,
+                child: Container(
+                  width: double.infinity, 
+                  child: TextFormField(
+                     validator: (value) {
+                                        if (value!.isEmpty ||
+                                            value.length < 7) {
+                                          return 'please enter a vaild correct';
+                                        } else {
+                                          return null;
+                                        }
+                                      },
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                        borderSide: BorderSide(color: ColorsManager.mainBlue),
+                      ),
+                      hintText: 'Enter Your Name-number',
+                      hintStyle: TextStyle(color: Colors.black),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
                     ),
                   ),
                 ),
