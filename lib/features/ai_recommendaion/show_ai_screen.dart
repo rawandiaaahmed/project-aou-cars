@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/ai_recommendaion/ai_detals_cars_screen.dart';
 
 import 'package:flutter_application_1/features/ai_recommendaion/widgets/header_ai.dart';
+import 'package:flutter_application_1/features/bookings/logic/bloc/booking_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ShowAiScreen extends StatelessWidget {
@@ -69,6 +71,7 @@ class ShowAiScreen extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
+              
               HeaderAi(),
               SizedBox(height: 12.h),
               SizedBox(
@@ -83,12 +86,15 @@ class ShowAiScreen extends StatelessWidget {
 
                     return InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AiDetalsCarsScreen(car: car),
-                          ),
-                        );
+                       Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => BlocProvider.value(
+      value: BlocProvider.of<BookingsBloc>(context),
+      child: AiDetalsCarsScreen(car: car),
+    ),
+  ),
+);
                       },
                       child: Container(
                         margin: EdgeInsets.only(bottom: 15.h),

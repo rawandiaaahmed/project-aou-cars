@@ -21,3 +21,4 @@ class ProfileError extends ProfileState {
   });
   
 }
+

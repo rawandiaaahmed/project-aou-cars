@@ -26,6 +26,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       } catch (e) {
         emit(ProfileError(message: e.toString()));
       }
-    });
+    }
+
+    );
+    
   }
+  
 }
