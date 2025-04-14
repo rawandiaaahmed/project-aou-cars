@@ -42,146 +42,148 @@ class SignInScreen extends StatelessWidget {
         }, builder: (context, state) {
           return SafeArea(
             child: Scaffold(
-              body: Column(
-                children: [
-                  Auth(),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Padding(
-                      padding:  EdgeInsets.all(8.0.h),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            Form(
-                              key: formkey,
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  Padding(
-                                    padding:  EdgeInsets.all(5.0.h),
-                                    child: TextFormField(
-                                      controller: email,
-                                      validator: (value) {
-                                        if (value!.isEmpty ||
-                                            !value.contains('@')) {
-                                          return 'please enter a vaild email';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      decoration: InputDecoration(
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: ColorsManager.mainBlue),
-                                            borderRadius:
-                                                BorderRadius.circular(12.r),
-                                          ),
-                                          hintText: 'email',
-                                          hintStyle:
-                                              TextStyle(color: Colors.black),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.grey),
-                                            borderRadius:
-                                                BorderRadius.circular(12.r),
-                                          )),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 12.h,
-                                  ),
-                                  Padding(
-                                    padding:  EdgeInsets.all(5.0.h),
-                                    child: TextFormField(
-                                      controller: password,
-                                      validator: (value) {
-                                        if (value!.isEmpty ||
-                                            value.length < 7) {
-                                          return 'please enter a vaild password';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      decoration: InputDecoration(
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(12.r),
-                                            borderSide:
-                                                BorderSide(color: ColorsManager.mainBlue),
-                                          ),
-                                          hintText: 'password',
-                                          hintStyle:
-                                              TextStyle(color: Colors.black),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.grey),
-                                            borderRadius:
-                                                BorderRadius.circular(12.r),
-                                          )),
-                                    ),
-                                  ),
-                                ],
+              body: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Auth(),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding:  EdgeInsets.all(8.0.h),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 15.h,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ForgetPasswordScreen()),
-                                  );
-                                },
-                                child: Text(
-                                  "Forget Password?",
-                                  style: TextStyle(color: Colors.green),
+                              Form(
+                                key: formkey,
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    Padding(
+                                      padding:  EdgeInsets.all(5.0.h),
+                                      child: TextFormField(
+                                        controller: email,
+                                        validator: (value) {
+                                          if (value!.isEmpty ||
+                                              !value.contains('@')) {
+                                            return 'please enter a vaild email';
+                                          } else {
+                                            return null;
+                                          }
+                                        },
+                                        decoration: InputDecoration(
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: ColorsManager.mainBlue),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.r),
+                                            ),
+                                            hintText: 'email',
+                                            hintStyle:
+                                                TextStyle(color: Colors.black),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.r),
+                                            )),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 12.h,
+                                    ),
+                                    Padding(
+                                      padding:  EdgeInsets.all(5.0.h),
+                                      child: TextFormField(
+                                        controller: password,
+                                        validator: (value) {
+                                          if (value!.isEmpty ||
+                                              value.length < 7) {
+                                            return 'please enter a vaild password';
+                                          } else {
+                                            return null;
+                                          }
+                                        },
+                                        decoration: InputDecoration(
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12.r),
+                                              borderSide:
+                                                  BorderSide(color: ColorsManager.mainBlue),
+                                            ),
+                                            hintText: 'password',
+                                            hintStyle:
+                                                TextStyle(color: Colors.black),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.r),
+                                            )),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
-                            SizedBox(height: 20.h),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: ColorsManager.mainBlue,
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10.h, horizontal: 50.h),
+                              SizedBox(
+                                height: 5.h,
                               ),
-                              onPressed: () {
-                                formkey.currentState!.save();
-                                if (formkey.currentState!.validate()) {
-                                  context.read<AuthBloc>().add(SignInEvent(
-                                      email: email.text,
-                                      password: password.text,
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              ForgetPasswordScreen()),
+                                    );
+                                  },
+                                  child: Text(
+                                    "Forget Password?",
+                                    style: TextStyle(color: Colors.green),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 20.h),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: ColorsManager.mainBlue,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10.h, horizontal: 50.h),
+                                ),
+                                onPressed: () {
+                                  formkey.currentState!.save();
+                                  if (formkey.currentState!.validate()) {
+                                    context.read<AuthBloc>().add(SignInEvent(
+                                        email: email.text,
+                                        password: password.text,
+                                        
                                       
-                                    
-                                      ));
-                                }
-                              },
-                              child: state is AuthLoading
-                                  ? CircularProgressIndicator()
-                                  : Text(
-                                      "Sign in",
-                                       style: TextStyle(
-              fontSize: 15.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.white),
-                                    ),
-                            ),
-                          ],
+                                        ));
+                                  }
+                                },
+                                child: state is AuthLoading
+                                    ? CircularProgressIndicator()
+                                    : Text(
+                                        "Sign in",
+                                         style: TextStyle(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.white),
+                                      ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

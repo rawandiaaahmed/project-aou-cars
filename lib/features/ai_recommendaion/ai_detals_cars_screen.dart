@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/features/ai_recommendaion/widgets/header_ai.dart';
+import 'package:flutter_application_1/features/bookings/data/models/booking_model.dart';
+import 'package:flutter_application_1/features/bookings/logic/bloc/booking_bloc.dart';
+import 'package:flutter_application_1/features/bookings/logic/bloc/booking_event.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class  AiDetalsCarsScreen extends StatelessWidget {
+ class AiDetalsCarsScreen extends StatelessWidget {
   final Map<String, dynamic> car;
+  AiDetalsCarsScreen({super.key, required this.car});
 
-   AiDetalsCarsScreen({super.key, required this.car});
 
   @override
+  
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -17,7 +22,7 @@ class  AiDetalsCarsScreen extends StatelessWidget {
             children: [
               HeaderAi(),
               SizedBox(height: 12.h),
-              
+
               Row(
                 children: [
                   IconButton(
@@ -35,9 +40,7 @@ class  AiDetalsCarsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              
               SizedBox(height: 12.h),
-
               Center(
                 child: Container(
                   width: 340.w,
@@ -89,7 +92,6 @@ class  AiDetalsCarsScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 2.h),
-                            
                             Row(
                               children: [
                                 Text(
@@ -109,9 +111,7 @@ class  AiDetalsCarsScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            
                             SizedBox(height: 4.h),
-
                             Row(
                               children: [
                                 Text(
@@ -131,31 +131,82 @@ class  AiDetalsCarsScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-
                             SizedBox(height: 6.h),
-
                             Text(
-                            car["prise"],
+                              car["prise"],
                               style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green
-                              ),
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.green),
                             ),
-                             SizedBox(height: 8.h),
+                            SizedBox(height: 8.h),
                             Row(
                               children: [
-                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
-                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
-                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
-                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
-                                Icon(Icons.star, color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 18.sp),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 18.sp),
                               ],
                             )
                           ],
                         ),
                       ),
                     ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.all(20.w),
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+   final booking = BookingModel(
+    carName: car['title'] ?? 'Unknown',
+    date: DateTime.now().toString().split(' ')[0],
+    status: 'Pending',
+    iconpath: car['iconpath'] ?? 'unknown',
+
+  Model: car['Model'] ?? 'Unknown',
+    make: car['make'] ?? 'Unknown',
+    Color: car['Color'] ?? 'Unknown',
+    City: car['City'] ?? 'Unknown',
+    prise: car['prise'] ?? 'Unknown',
+    suptitle: car['suptitle'] ?? 'Unknown',
+
+    
+  );
+
+  context.read<BookingsBloc>().add(AddBookingEvent(booking));
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Car booked successfully!')),
+  );
+
+  Navigator.pop(context);
+},
+                    child: Text(
+                      'Book The Car',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorsManager.mainBlue,
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 60.w),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                    ),
                   ),
                 ),
               ),

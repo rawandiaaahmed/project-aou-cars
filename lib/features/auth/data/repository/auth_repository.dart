@@ -73,4 +73,20 @@ class AuthRepository {
       throw Exception(e.message);
     }
   }
+  Future<void> bookCar(Map<String, dynamic> car) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        throw Exception("User not logged in");
+      }
+
+      final userDoc = _firestore.collection('users').doc(user.uid);
+
+      await userDoc.update({
+        'usercart': FieldValue.arrayUnion([car])
+      });
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 }
