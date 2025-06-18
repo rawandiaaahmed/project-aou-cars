@@ -66,8 +66,8 @@ class ProfileCarsScreen extends StatelessWidget {
                   },
                 ),
 
-                /// باقي الأزرار عادي
-                CarProfile(title: "Why Carzato", icon: Icons.article_outlined),
+              
+              
                 CarProfile(title: "Logout", icon: Icons.logout,onTap: () {
                    Navigator.push(
     context,

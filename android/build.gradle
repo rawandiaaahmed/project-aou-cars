@@ -16,3 +16,14 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+buildscript {
+    repositories {
+        google()  // يضمن أن Android Gradle Plugin يأتي من مستودع Google
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'  // تحديث Android Gradle Plugin
+    }
+    ext.kotlin_version = '1.8.10'
+      // تحديث إصدار Kotlin
+}
