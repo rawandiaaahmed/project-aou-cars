@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/features/auth/persintation/sign_in_screen.dart';
 import 'package:flutter_application_1/features/auth/persintation/sign_up_screen.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class Auth extends StatelessWidget {
   const Auth({super.key});

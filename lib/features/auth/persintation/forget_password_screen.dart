@@ -34,7 +34,7 @@ class ForgetPasswordScreen extends StatelessWidget {
         builder: (context, state) {
           return SafeArea(
             child: Scaffold(
-              appBar: AppBar(title: Text("Forget Password")),
+             
               body: Column(
                 children: [
                   Auth(),
