@@ -13,6 +13,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
        await authRepository.signIn(event.email, event.password);
          emit(AuthSucces(message: 'password reset email sent'));
+        
       } catch (e) {
         emit(AuthFailure(error: e.toString()));
       }
@@ -20,7 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignUpEvent>((event, emit) async {
       emit(AuthLoading());
       try {
-        await authRepository.signUp(event.email, event.password);
+        await authRepository.signUp(event.email, event.password );
         emit(AuthSucces(message: 'password reset email sent'));
       } catch (e) {
         emit(AuthFailure(error: e.toString()));
@@ -35,7 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthFailure(error: e.toString()));
       }
     });
-   
+ 
     
   }
   

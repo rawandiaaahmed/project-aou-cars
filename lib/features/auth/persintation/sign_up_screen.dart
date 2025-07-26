@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/widgets/auth.dart';
+import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
 import 'package:flutter_application_1/features/auth/data/repository/auth_repository.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_bloc.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_event.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_state.dart';
-import 'package:flutter_application_1/features/home/persintation/home.dart';
+
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class SignUpScreen extends StatelessWidget {
@@ -21,6 +24,8 @@ class SignUpScreen extends StatelessWidget {
 
   final firstName = TextEditingController();
   final lastName = TextEditingController();
+  final name = TextEditingController();
+  
 
   bool islouding = false;
 
@@ -35,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                 .showSnackBar(SnackBar(content: Text("sign up Successful")));
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => Home()),
+              MaterialPageRoute(builder: (context) => BottomBar()),
             );
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context)
@@ -51,22 +56,22 @@ class SignUpScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(6.0.h),
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 45,
+                            height: 15.h,
                           ),
                           Form(
                             key: formkey,
                             child: Column(
                               children: [
                                 SizedBox(
-                                  height: 20,
+                                  height: 12.h,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(5.0),
+                                  padding:  EdgeInsets.all(4.h),
                                   child: TextFormField(
                                     controller: firstName,
                                     validator: (value) {
@@ -79,9 +84,9 @@ class SignUpScreen extends StatelessWidget {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderSide:
-                                              BorderSide(color: Colors.blue),
+                                              BorderSide(color: ColorsManager.mainBlue),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         ),
                                         hintText: 'First Name',
                                         hintStyle:
@@ -90,15 +95,15 @@ class SignUpScreen extends StatelessWidget {
                                           borderSide:
                                               BorderSide(color: Colors.grey),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         )),
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 12.h,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(5.0),
+                                  padding:  EdgeInsets.all(4.0.h),
                                   child: TextFormField(
                                     controller: lastName,
                                     validator: (value) {
@@ -111,9 +116,9 @@ class SignUpScreen extends StatelessWidget {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderSide:
-                                              BorderSide(color: Colors.blue),
+                                              BorderSide(color:ColorsManager.mainBlue),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         ),
                                         hintText: 'Last Name',
                                         hintStyle:
@@ -122,15 +127,15 @@ class SignUpScreen extends StatelessWidget {
                                           borderSide:
                                               BorderSide(color: Colors.grey),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         )),
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 12.h,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(5.0),
+                                  padding:  EdgeInsets.all(4.0.h),
                                   child: TextFormField(
                                     controller: phoneNember,
                                     validator: (value) {
@@ -143,9 +148,9 @@ class SignUpScreen extends StatelessWidget {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderSide:
-                                              BorderSide(color: Colors.blue),
+                                              BorderSide(color: ColorsManager.mainBlue),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         ),
                                         hintText: 'phone Number',
                                         hintStyle:
@@ -154,15 +159,15 @@ class SignUpScreen extends StatelessWidget {
                                           borderSide:
                                               BorderSide(color: Colors.grey),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         )),
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 12.h,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(5.0),
+                                  padding:  EdgeInsets.all(4.0.h),
                                   child: TextFormField(
                                     controller: email,
                                     validator: (value) {
@@ -176,9 +181,9 @@ class SignUpScreen extends StatelessWidget {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderSide:
-                                              BorderSide(color: Colors.blue),
+                                              BorderSide(color: ColorsManager.mainBlue),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         ),
                                         hintText: 'email',
                                         hintStyle:
@@ -187,15 +192,15 @@ class SignUpScreen extends StatelessWidget {
                                           borderSide:
                                               BorderSide(color: Colors.grey),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         )),
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 12.h,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(5.0),
+                                  padding: EdgeInsets.all(4.h),
                                   child: TextFormField(
                                     controller: password,
                                     validator: (value) {
@@ -208,9 +213,9 @@ class SignUpScreen extends StatelessWidget {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                           borderSide:
-                                              BorderSide(color: Colors.blue),
+                                              BorderSide(color: ColorsManager.mainBlue),
                                         ),
                                         hintText: 'password',
                                         hintStyle:
@@ -219,19 +224,19 @@ class SignUpScreen extends StatelessWidget {
                                           borderSide:
                                               BorderSide(color: Colors.grey),
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.r),
                                         )),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(height: 42),
+                          SizedBox(height: 32.h),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorsManager.mainBlue,
                               padding: EdgeInsets.symmetric(
-                                  vertical: 18, horizontal: 60),
+                                  vertical: 10.h, horizontal: 50.h),
                             ),
                             onPressed: () {
                               formkey.currentState!.save();
@@ -241,14 +246,19 @@ class SignUpScreen extends StatelessWidget {
                                     firstName: firstName.text,
                                     lastName: lastName.text,
                                     password: password.text,
-                                    phoneNumber: phoneNember.text));
+                                    phoneNumber: phoneNember.text,
+                                   
+                                    ));
                               }
                             },
                             child: state is AuthLoading
                                 ? CircularProgressIndicator()
                                 : Text(
                                     "Sign up",
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+              fontSize: 15.sp,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
                                   ),
                           ),
                         ],

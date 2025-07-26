@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/widgets/auth.dart';
+import 'package:flutter_application_1/core/widgets/bottom_bar.dart';
 import 'package:flutter_application_1/features/auth/data/repository/auth_repository.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_bloc.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_event.dart';
 import 'package:flutter_application_1/features/auth/logic/bloc/auth_state.dart';
 import 'package:flutter_application_1/features/auth/persintation/forget_password_screen.dart';
 
-import 'package:flutter_application_1/features/home/persintation/home.dart';
+
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class SignInScreen extends StatelessWidget {
@@ -19,6 +22,8 @@ class SignInScreen extends StatelessWidget {
   final email = TextEditingController();
 
   final password = TextEditingController();
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,7 @@ class SignInScreen extends StatelessWidget {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => Home()));
+                context, MaterialPageRoute(builder: (context) => BottomBar()));
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.error)));
@@ -43,22 +48,22 @@ class SignInScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0.h),
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 50,
+                              height: 15.h,
                             ),
                             Form(
                               key: formkey,
                               child: Column(
                                 children: [
                                   SizedBox(
-                                    height: 20,
+                                    height: 10.h,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(5.0),
+                                    padding:  EdgeInsets.all(5.0.h),
                                     child: TextFormField(
                                       controller: email,
                                       validator: (value) {
@@ -72,9 +77,9 @@ class SignInScreen extends StatelessWidget {
                                       decoration: InputDecoration(
                                           focusedBorder: OutlineInputBorder(
                                             borderSide:
-                                                BorderSide(color: Colors.blue),
+                                                BorderSide(color: ColorsManager.mainBlue),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                           ),
                                           hintText: 'email',
                                           hintStyle:
@@ -83,15 +88,15 @@ class SignInScreen extends StatelessWidget {
                                             borderSide:
                                                 BorderSide(color: Colors.grey),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                           )),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 20,
+                                    height: 12.h,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(5.0),
+                                    padding:  EdgeInsets.all(5.0.h),
                                     child: TextFormField(
                                       controller: password,
                                       validator: (value) {
@@ -105,9 +110,9 @@ class SignInScreen extends StatelessWidget {
                                       decoration: InputDecoration(
                                           focusedBorder: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                             borderSide:
-                                                BorderSide(color: Colors.blue),
+                                                BorderSide(color: ColorsManager.mainBlue),
                                           ),
                                           hintText: 'password',
                                           hintStyle:
@@ -116,7 +121,7 @@ class SignInScreen extends StatelessWidget {
                                             borderSide:
                                                 BorderSide(color: Colors.grey),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.r),
                                           )),
                                     ),
                                   ),
@@ -124,7 +129,7 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: 17,
+                              height: 5.h,
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
@@ -143,26 +148,32 @@ class SignInScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 20.h),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: ColorsManager.mainBlue,
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 18, horizontal: 60),
+                                    vertical: 10.h, horizontal: 50.h),
                               ),
                               onPressed: () {
                                 formkey.currentState!.save();
                                 if (formkey.currentState!.validate()) {
                                   context.read<AuthBloc>().add(SignInEvent(
                                       email: email.text,
-                                      password: password.text));
+                                      password: password.text,
+                                      
+                                    
+                                      ));
                                 }
                               },
                               child: state is AuthLoading
                                   ? CircularProgressIndicator()
                                   : Text(
                                       "Sign in",
-                                      style: TextStyle(color: Colors.white),
+                                       style: TextStyle(
+              fontSize: 15.sp,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
                                     ),
                             ),
                           ],
